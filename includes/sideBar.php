@@ -26,8 +26,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"></li>
-        <li><a href="#">Marcas</a></li>
-        <li><a href="#">Actualidad Compufácil</a></li>
+        <li><a href="marcas.php">Marcas</a></li>
+        <li><a href="actualidad.php">Actualidad Compufácil</a></li>
           </ul>
     </div>
   </div>
@@ -42,8 +42,8 @@
     <div class="col-sm-3 sidenav hidden-xs">
     <ul class="nav nav-pills nav-stacked">
   <img src="../includes/imagenes/logosup.png">
-  <a class="list-group-item" href="#">&nbsp; <i class="fa fa-tags" aria-hidden="true"></i> Marcas</a>
-  <a class="list-group-item" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; Actualidad Compufácil</a>
+  <a class="list-group-item" href="marcas.php">&nbsp; <i class="fa fa-tags" aria-hidden="true"></i> Marcas</a>
+  <a class="list-group-item" href="actualidad.php"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; Actualidad Compufácil</a>
 </ul><br>
     </div>
     <br>
