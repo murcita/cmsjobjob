@@ -110,13 +110,13 @@ include_once("../includes/libraries.php");
         
 <fieldset>  
         
-<form class="form-horizontal"  enctype="multipart/form-data" method="POST">
+<form class="form-horizontal"  enctype="multipart/form-data" method="POST" action="../includes/subirMarca.php">
 
 <!-- NOMBRE DE LA MARCA-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="Nombre marca">Nombre marca</label>  
   <div class="col-md-4">
-  <input id="Nombre marca" name="nombreMarca" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="Nombre marca" name="nombreMarca" type="text" placeholder="" class="form-control input-md" required/>
     
   </div>
 </div>
@@ -133,7 +133,7 @@ include_once("../includes/libraries.php");
    <div class="image-upload">
       <label for="file-input">
     <img src="../includes/imagenes/educacion.jpg" id="imagenMarca"><hr>
-    <input id="file-input1" type="file"  onchange="readURL(1);" accept=".jpg,.jpeg,.png" name="imagenMarca" />
+    <input id="file-input1" type="file"  onchange="readURL(1);" accept=".jpg,.jpeg,.png" name="imagenMarca" required/>
     </label>
   </div>
 </div>
@@ -150,7 +150,7 @@ include_once("../includes/libraries.php");
    <div class="image-upload">
       <label for="file-input">
     <img src="../includes/imagenes/educacion.jpg" id="imagenIcono"><hr>
-    <input id="file-input2"  type="file"  onchange="readURL(2);" accept=".jpg,.jpeg,.png" name="imagenMarca2" />
+    <input id="file-input2"  type="file"  onchange="readURL(2);" accept=".jpg,.jpeg,.png" name="imagenMarca2" required/>
     </label>
   </div>
 </div>
