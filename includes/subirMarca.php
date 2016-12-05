@@ -54,10 +54,44 @@
     			$prepare->bindParam(":lastId",$lastId);
     			$prepare->execute();
     		}
-    		if (isset($_POST['presentacionMarca'])) {
-    			$nombrePresentacion = "presentacion_".$lastId."_".$fecha
+    		if (empty($_FILE["presentacionMarca"]["name"])) {
+    			$presentacion = $_FILES["presentacionMarca"]["tmp_name"];
+    			$nombrePresentacion = "presentacion_".$lastId."_".$fecha.".".pathinfo($_FILES["presentacionMarca"]["name"],PATHINFO_EXTENSION);
+    			if (move_uploaded_file($presentacion, $rutaGeneral."presentacion/".$nombrePresentacion)) {
+    				$query = "INSERT INTO Marcas_Archivos (direccion,tipo,id_marca) VALUES (:nombrePresentacion,'2',:lastId) ; ";
+    				$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    				$prepare = $link->prepare($query);
+    				$prepare->bindParam(":nombrePresentacion",$nombrePresentacion);
+    				$prepare->bindParam(":lastId",$lastId);
+    				$prepare->execute();
+    			}
     		}
-
+    		if (empty($_FILE["fichaTecnica"]["name"])) {
+    			$fichaTecnica = $_FILES["fichaTecnica"]["tmp_name"];
+    			$nombreFichaTecnica = "ficha_".$lastId."_".$fecha.".".pathinfo($_FILES["fichaTecnica"]["name"],PATHINFO_EXTENSION);
+    			if (move_uploaded_file($fichaTecnica, $rutaGeneral."fichatecnica/".$nombreFichaTecnica)) {
+    				$query = "INSERT INTO Marcas_Archivos (direccion,tipo,id_marca) VALUES (:nombreFichaTecnica,'1',:lastId) ; ";
+    				$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    				$prepare = $link->prepare($query);
+    				$prepare->bindParam(":nombreFichaTecnica",$nombreFichaTecnica);
+    				$prepare->bindParam(":lastId",$lastId);
+    				$prepare->execute();
+    			}
+    		}
+    		if (empty($_FILE["mailing"]["name"])) {
+    			$mailing = $_FILES["mailing"]["tmp_name"];
+    			$nombreMailing= "mailing_".$lastId."_".$fecha.".".pathinfo($_FILES["mailing"]["name"],PATHINFO_EXTENSION);
+    			if (move_uploaded_file($mailing, $rutaGeneral."mailing/".$nombreMailing)) {
+    				$query = "INSERT INTO Marcas_Archivos (direccion,tipo,id_marca) VALUES (:nombreMailing,'3',:lastId) ; ";
+    				$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    				$prepare = $link->prepare($query);
+    				$prepare->bindParam(":nombreMailing",$nombreMailing);
+    				$prepare->bindParam(":lastId",$lastId);
+    				$prepare->execute();
+    			}
+    		}
+    		echo "<script>console.log('Marca creada');</script>";
+    		echo "<script></script>";
 
 		}else{
 			echo "ERROR no viene la imagen";
@@ -65,6 +99,6 @@
 		}
 	}
 	function extension($nombre){
-		
+
 	}
 ?>
