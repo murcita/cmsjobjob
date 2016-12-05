@@ -1,3 +1,20 @@
+
+<?php
+  if (isset($_POST['id'])) {
+    include("../includes/conf.php");
+    $query = "SELECT * FROM Marcas WHERE activo = 'YES' AND id = :id ; "; 
+    $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $prepare = $link->prepare($query);
+    $prepare->setFetchMode(PDO::FETCH_ASSOC);
+    $prepare->bindParam(":id",$_POST['id']);
+    $prepare->execute();
+    $result = $prepare->fetchAll();
+    foreach ($result as $mar) {
+      $marca = $mar;
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,11 +129,25 @@ include_once("../includes/libraries.php");
         
 <form class="form-horizontal"  enctype="multipart/form-data" method="POST" action="../includes/subirMarca.php">
 
+
+<?php 
+  if(isset($_POST['id'])){
+    echo "<input type='text' value='".$_POST['id']."' hidden />";
+  }
+?>
+
+
 <!-- NOMBRE DE LA MARCA-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="Nombre marca">Nombre marca</label>  
   <div class="col-md-4">
-  <input id="Nombre marca" name="nombreMarca" type="text" placeholder="" class="form-control input-md" required/>
+  <?php 
+    if(isset($_POST['id'])){
+      echo '<input id="Nombre marca" name="nombreMarca" type="text" placeholder="" class="form-control input-md" required value="'.$marca['nombre'].'" />';
+    }else{
+      echo '<input id="Nombre marca" name="nombreMarca" type="text" placeholder="" class="form-control input-md" required />';
+    }
+  ?>
     
   </div>
 </div>
@@ -132,8 +163,17 @@ include_once("../includes/libraries.php");
   <div class="col-md-4">
    <div class="image-upload">
       <label for="file-input">
-    <img src="../includes/imagenes/educacion.jpg" id="imagenMarca"><hr>
-    <input id="file-input1" type="file"  onchange="readURL(1);" accept=".jpg,.jpeg,.png" name="imagenMarca" required/>
+  <?php
+    if (isset($_POST['id'])) {
+      echo '<img src="../archivos/marcas/banner/'.$marca['imagen'].'" id="imagenMarca"><hr>';
+      echo '<input id="file-input1" type="file"  onchange="readURL(1);" accept=".jpg,.jpeg,.png" name="imagenMarca" />';
+    }else{
+      echo '<img src="../includes/imagenes/educacion.jpg" id="imagenMarca"><hr>';
+      echo '<input id="file-input1" type="file"  onchange="readURL(1);" accept=".jpg,.jpeg,.png" name="imagenMarca" required/>';
+    }
+    
+  ?>
+    
     </label>
   </div>
 </div>
@@ -149,8 +189,15 @@ include_once("../includes/libraries.php");
   <div class="col-md-4">
    <div class="image-upload">
       <label for="file-input">
-    <img src="../includes/imagenes/educacion.jpg" id="imagenIcono"><hr>
-    <input id="file-input2"  type="file"  onchange="readURL(2);" accept=".jpg,.jpeg,.png" name="imagenMarca2" required/>
+  <?php
+    if (isset($_POST['id']) && $marca["imagen_2"] != null) {
+      echo '<img src="../archivos/marcas/icono/'.$marca["imagen_2"].'" id="imagenIcono"><hr>';
+      echo '<input id="file-input2"  type="file"  onchange="readURL(2);" accept=".jpg,.jpeg,.png" name="imagenMarca2"/>';
+    }else{
+      echo '<img src="../includes/imagenes/educacion.jpg" id="imagenIcono"><hr>';
+      echo '<input id="file-input2"  type="file"  onchange="readURL(2);" accept=".jpg,.jpeg,.png" name="imagenMarca2" required/>';
+    }
+  ?>
     </label>
   </div>
 </div>
@@ -166,9 +213,19 @@ include_once("../includes/libraries.php");
 <div class="form-group">
   <label class="col-md-4 control-label" for="Descripción">Descripción del producto</label>
   <div class="col-md-4">                     
-  <textarea class="form-control" id="Descripción" name="descripcionMarca" class="form-control input-md" required></textarea>
+  <?php
+    if (isset($_POST['id'])) {
+      echo '<textarea class="form-control" id="Descripción" name="descripcionMarca" class="form-control input-md" required>'.$marca['descripcion'].'</textarea>';
+    }else{
+      echo '<textarea class="form-control" id="Descripción" name="descripcionMarca" class="form-control input-md" required></textarea>';
+    }
+  ?>
+  
   </div>
 </div>
+
+
+
 
 <!-- PRESENTACION --> 
 <div class="form-group">

@@ -71,7 +71,7 @@ include_once("../includes/libraries.php");
 
 
 <?php
-   /*  
+   
   include("../includes/conf.php");
   $query = "SELECT * FROM Marcas WHERE activo = 'YES' ; "; 
   $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -87,13 +87,16 @@ include_once("../includes/libraries.php");
     echo '<img src="../archivos/marcas/banner/'.$marca["imagen"].'" width="100% ">';
     echo '</div>';
     echo '<div class="card-footer">';
-    echo '<button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>';
+    echo '<form action="detalleMarca.php" method="POST">';
+    echo '<input type="text" value="'.$marca["id"].'" name="id" hidden/>';
+    echo '<button type="submit" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>';
+    echo '</form>';
     echo '<button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>';
     echo '</div>';
     echo '</div>';
     echo '</div>';
   }
-  */    
+    
   
 ?>
       
