@@ -71,6 +71,7 @@ include_once("../includes/libraries.php");
 
 
 <?php
+    /*  
   include("../includes/conf.php");
   $query = "SELECT * FROM Marcas WHERE activo = 'YES' ; "; 
   $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -90,6 +91,8 @@ include_once("../includes/libraries.php");
     echo '</div>';
     echo '</div>';
   }
+  
+  */
 ?>
       
       
@@ -99,9 +102,10 @@ include_once("../includes/libraries.php");
  <div class="col-sm-2 col-md-6 col-lg-4">
         <div class="well">
 <h4 class="card-title">Educación</h4>
-<p><img src="../includes/imagenes/educacion.jpg">
-   
-    <div class="card-footer">
+<div class="container">
+<img src="../archivos/marcas/banner/banner_15_1480954522.png" width="100% ">
+</div>
+<div class="card-footer">
 <button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
 <button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>
 </div>
@@ -116,9 +120,10 @@ include_once("../includes/libraries.php");
  <div class="col-sm-2 col-md-6 col-lg-4">
         <div class="well">
 <h4 class="card-title">Educación</h4>
-<p><img src="../includes/imagenes/educacion.jpg">
-   
-    <div class="card-footer">
+<div class="container">
+<img src="../includes/imagenes/educacion.jpg" width="100%">
+</div>
+<div class="card-footer">
 <button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
 <button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>
 </div>
@@ -128,10 +133,12 @@ include_once("../includes/libraries.php");
       <!--Duplicado Tarjeta-->      
             
  <div class="col-sm-2 col-md-6 col-lg-4">
-        <div class="well">
+<div class="well">
 <h4 class="card-title">Educación</h4>
-<p><img src="../includes/imagenes/educacion.jpg">
-      
+<div class="container">
+
+<img src="../archivos/marcas/banner/banner_15_1480954522.png" width="100% ">
+</div>
     <div class="card-footer">
 <button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
 <button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>
@@ -146,7 +153,9 @@ include_once("../includes/libraries.php");
  <div class="col-sm-2 col-md-6 col-lg-4">
         <div class="well">
 <h4 class="card-title">Educación</h4>
-<p><img src="../includes/imagenes/educacion.jpg">
+<div class="container">
+<img src="../includes/imagenes/educacion.jpg" width="100%">
+</div>
     
     <div class="card-footer">
 <button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
