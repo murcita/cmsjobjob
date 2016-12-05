@@ -81,9 +81,11 @@ include_once("../includes/libraries.php");
             </div>   
             <p></p>
             <p>Grupo Compufácil presente en RUMBO 2016, evento de educación  y TICS. <a href=”www.rumbo.com”>www.rumbo.com</a></p>
-            <p><img src="../includes/imagenes/Actualidad.jpg." width="300px"></p>
-
-   
+            
+            <div class="container">
+<img src="../includes/imagenes/Actualidad.jpg" width="100% ">
+              <b> Dic 05, 2016 3:00 p.m.</b>
+</div>   
     <div class="card-footer">
 <button type="button" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
 <button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</button>

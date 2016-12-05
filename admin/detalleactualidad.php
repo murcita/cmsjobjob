@@ -128,7 +128,7 @@ include_once("../includes/libraries.php");
     
     
     
-    <!-- DESCRIPCION -->
+    <!-- NUEVA ENTRADA -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="Descripción">Nueva entrada</label>
   <div class="col-md-4">                     
