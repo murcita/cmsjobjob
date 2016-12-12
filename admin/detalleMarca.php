@@ -12,6 +12,33 @@
     foreach ($result as $mar) {
       $marca = $mar;
     }
+
+    $query = "SELECT * FROM Marcas_Archivos WHERE id_marca=:id AND activo = 'YES'; ";
+    $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $prepare = $link->prepare($query);
+    $prepare->setFetchMode(PDO::FETCH_ASSOC);
+    $prepare->bindParam(":id",$_POST['id']);
+    $prepare->execute();
+    $result = $prepare->fetchAll();
+    foreach ($result as $archivo) {
+    	switch ($archivo['tipo']) {
+    		//ficha tecnica
+    		case '1':
+    			$fichaTecnica = $archivo;
+    			break;
+    		//presentacion
+    		case '2':
+    			$presentacion = $archivo;
+    			break;
+    		//mailing
+    		case '3':
+    			$mailing = $archivo;
+    			break;
+    		default:
+    			# code...
+    			break;
+    	}
+    }
   }
 ?>
 
@@ -233,7 +260,14 @@ include_once("../includes/libraries.php");
   <label class="col-md-4 control-label" for="Presentación">Presentación PPT -PPTX</label>
      <div class="col-md-4">
     <input id="Presentación" name="presentacionMarca" class="input-file" type="file">
-    <a href="destino.php"><img src="../includes/imagenes/editdoc.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo adjuntado"></a> 
+    <?php
+    	if ($presentacion !== null) {
+    		echo '<a href="../archivos/marcas/presentacion/'.$presentacion['direccion'].'" target="_blank"><img src="../includes/imagenes/editdoc.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo adjuntado"></a> ';
+    	}else{
+    		echo '<img src="../includes/imagenes/editdocbn.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo no adjuntado">';
+    	}
+    ?>
+     
   </div>
 </div>
 
@@ -246,7 +280,14 @@ include_once("../includes/libraries.php");
   <label class="col-md-4 control-label" for="Ficha técnica">Ficha técnica PDF</label>
   <div class="col-md-4">
     <input id="Ficha técnica" name="fichaTecnica" class="input-file" type="file">
-      <img src="../includes/imagenes/editdocbn.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo no adjuntado">
+    <?php
+    	if ($fichaTecnica !== null) {
+    		echo '<a href="../archivos/marcas/fichatecnica/'.$fichaTecnica['direccion'].'" target="_blank"><img src="../includes/imagenes/editdoc.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo adjuntado"></a> ';
+    	}else{
+    		echo '<img src="../includes/imagenes/editdocbn.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo no adjuntado">';
+    	}
+    ?>
+      
       </div>
 </div>
 
@@ -257,7 +298,13 @@ include_once("../includes/libraries.php");
   <label class="col-md-4 control-label" for="Mailing">Mailing JPG</label>
   <div class="col-md-4">
     <input id="Mailing" name="mailing" class="input-file" type="file">
-
+    <?php
+    	if ($mailing !== null) {
+    		echo '<a href="../archivos/marcas/mailing/'.$mailing['direccion'].'" target="_blank"><img src="../includes/imagenes/editdoc.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo adjuntado"></a> ';
+    	}else{
+    		echo '<img src="../includes/imagenes/editdocbn.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo no adjuntado">';
+    	}
+    ?>
   </div>
 </div>
 
