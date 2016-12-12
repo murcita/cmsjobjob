@@ -23,8 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     
     
-    
-    
+        
     <script type="text/javascript">
     function readURL(entrada) {
         console.log("Input " + entrada);
@@ -203,8 +202,7 @@ include_once("../includes/libraries.php");
 </div>
 </div>
     
-    
-      
+     
     
     
     
@@ -222,34 +220,44 @@ include_once("../includes/libraries.php");
   ?>
   
   </div>
-</div>
+</div>    
+    
 
-
-
-
+    
+    
+    
+    
+    
 <!-- PRESENTACION --> 
 <div class="form-group">
   <label class="col-md-4 control-label" for="Presentación">Presentación PPT -PPTX</label>
-  <div class="col-md-4">
+     <div class="col-md-4">
     <input id="Presentación" name="presentacionMarca" class="input-file" type="file">
+    <a href="destino.php"><img src="../includes/imagenes/editdoc.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo adjuntado"></a> 
   </div>
 </div>
 
+    
 
+    
 
 <!-- FICHA TECNICA --> 
 <div class="form-group">
   <label class="col-md-4 control-label" for="Ficha técnica">Ficha técnica PDF</label>
   <div class="col-md-4">
     <input id="Ficha técnica" name="fichaTecnica" class="input-file" type="file">
-  </div>
+      <img src="../includes/imagenes/editdocbn.png" width="6%" alt="Enviar" data-toggle="tooltip" data-placement="top" title="Archivo no adjuntado">
+      </div>
 </div>
 
+    
+    
 <!-- MAILING --> 
 <div class="form-group">
   <label class="col-md-4 control-label" for="Mailing">Mailing JPG</label>
   <div class="col-md-4">
     <input id="Mailing" name="mailing" class="input-file" type="file">
+
   </div>
 </div>
 
@@ -261,6 +269,9 @@ include_once("../includes/libraries.php");
     
 </form>
 </fieldset>
+    
+    
+    
 
     </div></div></div></CENTER></div></body></html>
 
