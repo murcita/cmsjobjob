@@ -71,7 +71,7 @@ include_once("../includes/libraries.php");
 
 
 <?php
-   
+   /*
   include("../includes/conf.php");
   $query = "SELECT * FROM Marcas WHERE activo = 'YES' ; "; 
   $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -100,12 +100,12 @@ include_once("../includes/libraries.php");
     echo '</div>';
   }
     
-  
+  */
 ?>
       
       
       
-<!--Original marca   
+<!--Original marca   --> 
             
  <div class="col-sm-2 col-md-6 col-lg-4">
         <div class="well">
@@ -116,20 +116,29 @@ include_once("../includes/libraries.php");
 <div class="card-footer">
     <form action="detalleMarca.php"><button type="submit" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></form>
 <button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>
-</div>
+
+    
+    <input type="checkbox" checked data-toggle="toggle" data-on="Destacar marca" data-off="Marca destacada <i class='fa fa-close'></i>" data-onstyle="danger" data-offstyle="success" data-width="100%";>
+
+            
+    </div>
     </div>
    </div>
       
       
       
       
-      Duplicado Tarjeta-->      
+    <!--  Duplicado Tarjeta   -->  
             
-
+ 
+      
+      
       
      
      </div>
       </div>
+          
+ 
         </center></div>
 
         <script type="text/javascript">
@@ -140,8 +149,14 @@ include_once("../includes/libraries.php");
         		}
         		return true;
         	}
+                        
         </script>
+        
+        
 
-
-        </body></html>
+       
+ 
+    
+    
+    </body></html>
     
