@@ -71,7 +71,7 @@ include_once("../includes/libraries.php");
 
 
 <?php
-   /*
+   
   include("../includes/conf.php");
   $query = "SELECT * FROM Marcas WHERE activo = 'YES' ; "; 
   $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -100,7 +100,7 @@ include_once("../includes/libraries.php");
     echo '</div>';
   }
     
-  */
+  
 ?>
       
       
