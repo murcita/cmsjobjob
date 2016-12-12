@@ -91,7 +91,10 @@ include_once("../includes/libraries.php");
     echo '<input type="text" value="'.$marca["id"].'" name="id" hidden/>';
     echo '<button type="submit" class="btn btn-primary btn-lg btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>';
     echo '</form>';
-    echo '<button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>';
+    echo '<form action="../includes/eliminarMarca.php" onsubmit="return eliminarMarca();" method="POST">';
+    echo '<input type="text" name="ide" value="'.$marca['id'].'" hidden>';
+    echo '<button type="submit" class="btn btn-default btn-lg btn-block"><i class="fa fa-trash" aria-hidden="true"></i>       Eliminar</button>';
+    echo "</form>";
     echo '</div>';
     echo '</div>';
     echo '</div>';
@@ -102,7 +105,7 @@ include_once("../includes/libraries.php");
       
       
       
-<!--Original marca-->      
+<!--Original marca   
             
  <div class="col-sm-2 col-md-6 col-lg-4">
         <div class="well">
@@ -120,12 +123,25 @@ include_once("../includes/libraries.php");
       
       
       
-      <!--Duplicado Tarjeta-->      
+      Duplicado Tarjeta-->      
             
 
       
      
      </div>
       </div>
-        </center></div></body></html>
+        </center></div>
+
+        <script type="text/javascript">
+        	function eliminarMarca(){
+        		var conf = confirm("¿Seguro deseas eliminar esta marca?");
+        		if (!conf) {
+        			return false;
+        		}
+        		return true;
+        	}
+        </script>
+
+
+        </body></html>
     

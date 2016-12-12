@@ -132,7 +132,7 @@ include_once("../includes/libraries.php");
 
 <?php 
   if(isset($_POST['id'])){
-    echo "<input type='text' value='".$_POST['id']."' hidden />";
+    echo "<input type='text' value='".$_POST['id']."' hidden name='idMarca'/>";
   }
 ?>
 
